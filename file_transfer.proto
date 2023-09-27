@@ -10,6 +10,28 @@ service FileTransfer {
   rpc SendFile (stream Chunk) returns (Response);
 }
 
+service DataNode {
+  rpc UploadChunk (Chunk) returns (Response);
+}
+
+service NameNode {
+  rpc AllocateFile (FileRequest) returns (FileMetadata);
+  rpc GetFileLocation (FileRequest) returns (FileLocation);
+}
+
 message Response {
   string message = 1;
+}
+
+message FileRequest {
+  string filename = 1;
+  int64 size = 2;
+}
+
+message FileMetadata {
+  repeated string locations = 1;
+}
+
+message FileLocation {
+  string location = 1;
 }

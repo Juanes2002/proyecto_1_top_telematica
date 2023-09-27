@@ -64,3 +64,158 @@ class FileTransfer(object):
             file__transfer__pb2.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class DataNodeStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.UploadChunk = channel.unary_unary(
+                '/filetransfer.DataNode/UploadChunk',
+                request_serializer=file__transfer__pb2.Chunk.SerializeToString,
+                response_deserializer=file__transfer__pb2.Response.FromString,
+                )
+
+
+class DataNodeServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def UploadChunk(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_DataNodeServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'UploadChunk': grpc.unary_unary_rpc_method_handler(
+                    servicer.UploadChunk,
+                    request_deserializer=file__transfer__pb2.Chunk.FromString,
+                    response_serializer=file__transfer__pb2.Response.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'filetransfer.DataNode', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class DataNode(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def UploadChunk(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/filetransfer.DataNode/UploadChunk',
+            file__transfer__pb2.Chunk.SerializeToString,
+            file__transfer__pb2.Response.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class NameNodeStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.AllocateFile = channel.unary_unary(
+                '/filetransfer.NameNode/AllocateFile',
+                request_serializer=file__transfer__pb2.FileRequest.SerializeToString,
+                response_deserializer=file__transfer__pb2.FileMetadata.FromString,
+                )
+        self.GetFileLocation = channel.unary_unary(
+                '/filetransfer.NameNode/GetFileLocation',
+                request_serializer=file__transfer__pb2.FileRequest.SerializeToString,
+                response_deserializer=file__transfer__pb2.FileLocation.FromString,
+                )
+
+
+class NameNodeServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def AllocateFile(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetFileLocation(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_NameNodeServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'AllocateFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.AllocateFile,
+                    request_deserializer=file__transfer__pb2.FileRequest.FromString,
+                    response_serializer=file__transfer__pb2.FileMetadata.SerializeToString,
+            ),
+            'GetFileLocation': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetFileLocation,
+                    request_deserializer=file__transfer__pb2.FileRequest.FromString,
+                    response_serializer=file__transfer__pb2.FileLocation.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'filetransfer.NameNode', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class NameNode(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def AllocateFile(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/filetransfer.NameNode/AllocateFile',
+            file__transfer__pb2.FileRequest.SerializeToString,
+            file__transfer__pb2.FileMetadata.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetFileLocation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/filetransfer.NameNode/GetFileLocation',
+            file__transfer__pb2.FileRequest.SerializeToString,
+            file__transfer__pb2.FileLocation.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13\x66ile_transfer.proto\x12\x0c\x66iletransfer\"\x15\n\x05\x43hunk\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\"\x1b\n\x08Response\x12\x0f\n\x07message\x18\x01 \x01(\t2I\n\x0c\x46ileTransfer\x12\x39\n\x08SendFile\x12\x13.filetransfer.Chunk\x1a\x16.filetransfer.Response(\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13\x66ile_transfer.proto\x12\x0c\x66iletransfer\"\x15\n\x05\x43hunk\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\"\x1b\n\x08Response\x12\x0f\n\x07message\x18\x01 \x01(\t\"-\n\x0b\x46ileRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\x03\"!\n\x0c\x46ileMetadata\x12\x11\n\tlocations\x18\x01 \x03(\t\" \n\x0c\x46ileLocation\x12\x10\n\x08location\x18\x01 \x01(\t2I\n\x0c\x46ileTransfer\x12\x39\n\x08SendFile\x12\x13.filetransfer.Chunk\x1a\x16.filetransfer.Response(\x01\x32\x46\n\x08\x44\x61taNode\x12:\n\x0bUploadChunk\x12\x13.filetransfer.Chunk\x1a\x16.filetransfer.Response2\x9b\x01\n\x08NameNode\x12\x45\n\x0c\x41llocateFile\x12\x19.filetransfer.FileRequest\x1a\x1a.filetransfer.FileMetadata\x12H\n\x0fGetFileLocation\x12\x19.filetransfer.FileRequest\x1a\x1a.filetransfer.FileLocationb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,6 +25,16 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_CHUNK']._serialized_end=58
   _globals['_RESPONSE']._serialized_start=60
   _globals['_RESPONSE']._serialized_end=87
-  _globals['_FILETRANSFER']._serialized_start=89
-  _globals['_FILETRANSFER']._serialized_end=162
+  _globals['_FILEREQUEST']._serialized_start=89
+  _globals['_FILEREQUEST']._serialized_end=134
+  _globals['_FILEMETADATA']._serialized_start=136
+  _globals['_FILEMETADATA']._serialized_end=169
+  _globals['_FILELOCATION']._serialized_start=171
+  _globals['_FILELOCATION']._serialized_end=203
+  _globals['_FILETRANSFER']._serialized_start=205
+  _globals['_FILETRANSFER']._serialized_end=278
+  _globals['_DATANODE']._serialized_start=280
+  _globals['_DATANODE']._serialized_end=350
+  _globals['_NAMENODE']._serialized_start=353
+  _globals['_NAMENODE']._serialized_end=508
 # @@protoc_insertion_point(module_scope)
